@@ -1,0 +1,77 @@
+# KBench
+
+> **The SWE-bench for Operating Systems.**
+> The first AI test suite for **OS-kernel agent engineering**.
+
+[English](README.md) · [中文](README.zh-CN.md)
+
+KBench is an evaluation benchmark that measures how well foundation models and
+AI agents perform on **real Linux-kernel engineering tasks**. It collects task
+suites across multiple engineering verticals — code retrieval, MR review, bug
+fixing, patch backporting — each with independently verified ground truth, and
+scores systems on **accuracy** and **cost** (wall-time, tokens, tool calls).
+
+Inspired by [SWE-bench](https://swebench.com), KBench brings the same
+"real task → ground-truth solution → behavioral scoring" methodology to the
+kernel — and goes further by spanning **multiple task types** and validating
+whole agent **systems**, not just models.
+
+## Why KBench?
+
+- **General benchmarks skip the kernel.** Mainstream SE benchmarks target
+  Python app repos; the kernel — the most constrained system software
+  (concurrency, architecture-dependence, config-dependence, indirect calls,
+  macro density) — is largely unmeasured.
+- **How good are foundation models on the kernel?** A model that aces
+  SWE-bench may still struggle on kernel tasks. KBench makes this measurable.
+- **It demonstrates kernel complexity.** Score gaps versus general SE
+  benchmarks, plus failure-mode analysis, empirically establish the kernel as
+  a distinct, harder frontier.
+- **It validates agent systems.** Teams building kernel-agent tools
+  (e.g. [KGraph](https://github.com/ajksunkang-aios/KGraph)) need a shared
+  benchmark to prove their system makes agents better. KBench is that benchmark.
+
+## Evaluation verticals
+
+| Vertical | Task | Ground truth | Accuracy |
+|---|---|---|---|
+| **Code retrieval** | find callers/callees, struct fields, indirect-call resolution (ops tables), call paths, references, type defs | compiler-resolved sets | recall / precision / path IoU |
+| **MR review** | review a patch / merge request, surface issues | known review findings (LKML / fixing commits) | issue recall + false-positive rate |
+| **Bugfix** | given a bug/crash report, locate root cause + produce a patch | upstream `Fixes:` commit | behavioral (does it fix it?) + semantic |
+| **Patch backporting** | port a fix to an older version | stable-tree backport | clean apply + semantic match |
+
+> Cost metrics are uniform across verticals (wall-time / tokens / tool-call
+> counts); each vertical has its own accuracy scorer. Adding a vertical =
+> adding one scorer — the driver and reports stay the same.
+
+## How it works
+
+KBench gives an agent (model + optional tooling) a real kernel task and scores
+its output against ground truth. Two evaluation modes:
+
+- **System-level A/B** — same agent + model, varying *only* whether the
+  system-under-test is attached (e.g. with vs. without KGraph). Validates
+  whether a system helps agents do better.
+- **Model-ceiling** — no external tools; measures a model's raw ceiling per
+  vertical, for cross-benchmark comparison and complexity evidence.
+
+Outputs: structured JSON (for dashboards) + rendered leaderboard-style reports.
+
+## Status
+
+🚧 **Design phase.** v1 (code-retrieval vertical) is under active development.
+
+Roadmap: code retrieval (v1) → bugfix → MR review → patch backporting.
+
+## Design
+
+Full design and methodology: **[`docs/DESIGN.md`](docs/DESIGN.md)**.
+
+## Related
+
+- [KGraph](https://github.com/ajksunkang-aios/KGraph) — compiler-aware kernel
+  code-graph engine; one of the first systems validated on KBench.
+
+## License
+
+[MIT](LICENSE).
