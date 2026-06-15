@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/ops_impls/read_iter",
+  "vertical": "retrieval",
+  "subtype": "ops_impls",
+  "tier": "compiler-aware",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "Which function implements the `read_iter` method for the ext4 filesystem (i.e. is bound to ext4_file_operations.read_iter)? Return the function name and file. (This is indirect dispatch through a function-pointer table.)",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "ext4_file_read_iter",
+        "fs/ext4/file.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/function_body/ext4_file_read_iter",
+  "vertical": "retrieval",
+  "subtype": "function_body",
+  "tier": "direct",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "In which source file is the function `ext4_file_read_iter` defined? Return the file path.",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "ext4_file_read_iter",
+        "fs/ext4/file.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

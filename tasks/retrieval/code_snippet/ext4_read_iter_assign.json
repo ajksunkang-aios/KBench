@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/code_snippet/ext4_read_iter_assign",
+  "vertical": "retrieval",
+  "subtype": "code_snippet",
+  "tier": "direct",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "In ext4's file_operations table, which function is assigned to the `.read_iter` field? Return the function name and file.",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "ext4_file_read_iter",
+        "fs/ext4/file.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

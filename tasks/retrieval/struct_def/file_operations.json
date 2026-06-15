@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/struct_def/file_operations",
+  "vertical": "retrieval",
+  "subtype": "struct_def",
+  "tier": "direct",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "In which header file is `struct file_operations` defined? Return the file path.",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "file_operations",
+        "include/linux/fs.h"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

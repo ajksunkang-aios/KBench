@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/callers/ext4_file_read_iter",
+  "vertical": "retrieval",
+  "subtype": "callers",
+  "tier": "compiler-aware",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "Through which ops-table variable is `ext4_file_read_iter` bound as an implementation? Return the table variable name and file. (Indirect dispatch \u2014 grepping the function name will NOT find this binding.)",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "ext4_file_operations",
+        "fs/ext4/file.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

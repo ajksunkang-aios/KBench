@@ -1,0 +1,9 @@
+# KBench runtime dependencies.
+#
+# anthropic: drives the agent through the Anthropic-compatible endpoint
+#            (GLM-5.x via ANTHROPIC_BASE_URL in this env — same path Claude Code uses).
+# protobuf + mcp: required to load KGraph's mcp/server.py (the B-kgraph arm imports
+#                 its MCP tools directly). These mirror KGraph's own runtime deps.
+anthropic
+protobuf>=7.35.0,<8
+mcp

@@ -1,0 +1,23 @@
+{
+  "id": "retrieval/callers/vfs_read",
+  "vertical": "retrieval",
+  "subtype": "callers",
+  "tier": "direct",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "Which functions directly call `vfs_read`? List each caller's name.",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "ksys_read",
+        "fs/read_write.c"
+      ],
+      [
+        "ksys_pread64",
+        "fs/read_write.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

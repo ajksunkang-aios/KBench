@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/symbol_def/generic_file_read_iter",
+  "vertical": "retrieval",
+  "subtype": "symbol_def",
+  "tier": "direct",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "In which source file is the function `generic_file_read_iter` defined? Return the file path.",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "generic_file_read_iter",
+        "mm/filemap.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

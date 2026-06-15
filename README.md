@@ -59,9 +59,24 @@ Outputs: structured JSON (for dashboards) + rendered leaderboard-style reports.
 
 ## Status
 
-🚧 **Design phase.** v1 (code-retrieval vertical) is under active development.
+🚧 **In development.**
 
-Roadmap: code retrieval (v1) → bugfix → MR review → patch backporting.
+- **Code-retrieval vertical — functional v1.** A/B harness (baseline
+  `grep/glob/read` vs `+KGraph`), tool-using agent loop, and accuracy+cost
+  reports. Pinned to a fixed kernel commit (`v7.1-rc7`); see
+  [`tasks/retrieval/manifest.json`](tasks/retrieval/manifest.json) + the setup
+  workflow (`scripts/setup_retrieval.sh`: `git checkout` → build `kgraph.db` → run).
+- **Patch-backporting vertical — dataset imported** (21 CVE tasks); the
+  behavioral harness (checkout target → apply → build → test) is in progress.
+
+Roadmap: backport harness → bugfix → MR review.
+
+## Dataset sources
+
+The **patch-backporting** tasks are derived from the dataset of:
+
+> **PORTGPT: Towards Automated Backporting Using Large Language Models.**
+> IEEE Symposium on Security and Privacy (S&P), 2026.
 
 ## Design
 

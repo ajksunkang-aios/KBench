@@ -1,0 +1,8 @@
+{
+  "vertical": "retrieval",
+  "commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "describe": "v7.1-rc7",
+  "shared_index": true,
+  "setup": "git -C <linux> checkout <commit>; build the kernel with clang and gen compile_commands.json; kgraph init <linux> → <linux>/.kgraph/kgraph.db",
+  "note": "All retrieval tasks share this single base_commit — no per-task version switching. The agent explores the tree AT this commit; the KGraph arm queries a kgraph.db built FROM this same commit. (Building kgraph.db runs scip-clang, which is Linux x86-64 only.)"
+}

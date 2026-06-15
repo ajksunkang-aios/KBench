@@ -1,0 +1,19 @@
+{
+  "id": "retrieval/symbol_def/vfs_read",
+  "vertical": "retrieval",
+  "subtype": "symbol_def",
+  "tier": "direct",
+  "repo": "/Users/ajksunkang/workspace/linux",
+  "base_commit": "4549871118cf616eecdd2d939f78e3b9e1dddc48",
+  "prompt": "In which source file is the function `vfs_read` defined? Return the file path.",
+  "ground_truth": {
+    "method": "set",
+    "expected": [
+      [
+        "vfs_read",
+        "fs/read_write.c"
+      ]
+    ]
+  },
+  "scorer": "set_recall_precision"
+}

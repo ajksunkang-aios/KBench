@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Run outputs (per-run artifacts, not source)
+results/
+reports/
+
+# Local config / secrets
+.env
