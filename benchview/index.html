@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KBench — Benchmark Catalog</title>
+  <style>
+    :root {
+      --bg:#0d1117; --card:#161b22; --line:#30363d; --text:#e6edf3;
+      --muted:#8b949e; --accent:#58a6ff; --ok:#3fb950; --plan:#d29922;
+      --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text);
+      font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+    .wrap { max-width:920px; margin:0 auto; padding:48px 24px 80px; }
+    h1 { font-size:30px; margin:0 0 4px; letter-spacing:-.01em; }
+    .tag { color:var(--accent); font-weight:600; }
+    .sub { color:var(--muted); margin:0 0 8px; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .lead { color:var(--text); margin:18px 0 32px; }
+    h2 { font-size:13px; text-transform:uppercase; letter-spacing:.08em;
+      color:var(--muted); margin:36px 0 12px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+    table { width:100%; border-collapse:collapse; background:var(--card);
+      border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+    th,td { padding:12px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { background:#21262d; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+    tr:last-child td { border-bottom:none; }
+    td.n { font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .vname { font-weight:600; }
+    .vname small { display:block; font-weight:400; color:var(--muted); font-size:12px; margin-top:2px; }
+    .pill { display:inline-block; padding:1px 8px; border-radius:11px; font-size:11px; font-weight:600; }
+    .pill.ok { color:var(--ok); background:rgba(63,185,80,.12); }
+    .pill.plan { color:var(--plan); background:rgba(210,153,34,.12); }
+    .src { font-size:13px; }
+    .src em { color:var(--muted); font-style:normal; }
+    .cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+    .card h3 { margin:0 0 6px; font-size:15px; }
+    .card .cite { font-size:13px; color:var(--text); }
+    .card .where { font-size:12px; color:var(--muted); margin-top:6px; font-family:var(--mono); }
+    .foot { color:var(--muted); font-size:13px; margin-top:40px; }
+    code { font-family:var(--mono); font-size:12px; background:#21262d; padding:1px 5px; border-radius:4px; }
+    @media (max-width:640px){ .cards{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="tag">KBench</div>
+    <h1>Benchmark Catalog</h1>
+    <p class="sub">The SWE-bench for Operating Systems · <a href="https://github.com/ajksunkang-aios/KBench">github.com/ajksunkang-aios/KBench</a></p>
+    <p class="lead">
+      KBench is a multi-vertical benchmark for OS-kernel agent engineering. The
+      catalog below lists each test suite by category, with its size, format, and
+      provenance. Datasets are imported from the cited sources; the harness
+      measures accuracy and cost (tokens / tool-calls / time) under a controlled
+      A/B (baseline <code>grep/glob/read</code> vs <code>+KGraph</code>).
+    </p>
+
+    <h2>Test suites by category</h2>
+    <table>
+      <thead>
+        <tr><th>Vertical</th><th>Tasks</th><th>Format</th><th>Source</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vname">Code retrieval<small>callers · ops tables · call chains · structs · symbol defs</small></td>
+          <td class="n">8</td>
+          <td>JSON tasks<br><span class="sub">pinned <code>v7.1-rc7</code></span></td>
+          <td class="src">self-built</td>
+          <td><span class="pill ok">v1 harness live</span></td>
+        </tr>
+        <tr>
+          <td class="vname">Patch backporting<small>port an upstream fix to an older release</small></td>
+          <td class="n">21</td>
+          <td>JSON tasks<br><span class="sub">inline fix patch</span></td>
+          <td class="src"><em>PORTGPT</em><br>(IEEE S&amp;P 2026)</td>
+          <td><span class="pill plan">dataset ready</span></td>
+        </tr>
+        <tr>
+          <td class="vname">Bugfix<small>syzkaller crash → root cause → fix</small></td>
+          <td class="n">20</td>
+          <td>raw-file dirs<br><span class="sub">crash · config · patch</span></td>
+          <td class="src"><em>KGym</em><br>(NeurIPS 2024)</td>
+          <td><span class="pill plan">dataset ready</span></td>
+        </tr>
+        <tr>
+          <td class="vname">MR review<small>surface issues in a patch / merge request</small></td>
+          <td class="n">—</td>
+          <td>—</td>
+          <td class="src"><em>planned</em></td>
+          <td><span class="pill plan">planned</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Dataset sources</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Patch backporting</h3>
+        <p class="cite"><b>PORTGPT: Towards Automated Backporting Using Large Language Models.</b>
+        IEEE Symposium on Security and Privacy (S&amp;P), 2026.</p>
+        <p class="where">used by: tasks/backport/ (21 CVE tasks)</p>
+      </div>
+      <div class="card">
+        <h3>Bugfix</h3>
+        <p class="cite"><b>KGym: A Platform and Dataset to Benchmark Large Language Models
+        on Linux Kernel Crash Resolution.</b> NeurIPS, 2024.</p>
+        <p class="where">GitHub: Kernel_Benchmark_C_Repro → tasks/bugfix/ (20 tasks)</p>
+      </div>
+    </div>
+
+    <h2>Evaluation</h2>
+    <p class="lead">
+      Each task runs an agent (model + tools) under two arms —
+      <b>A-baseline</b> (<code>grep/glob/read</code>) vs <b>B-kgraph</b>
+      (baseline + KGraph's 13 MCP tools) — instrumented for accuracy
+      (recall/precision) and cost (tokens / tool-calls / wall-time). Results render
+      as an A-vs-B report per vertical.
+    </p>
+
+    <p class="foot">
+      Full design &amp; methodology: <a href="https://github.com/ajksunkang-aios/KBench/blob/main/docs/DESIGN.md">docs/DESIGN.md</a> ·
+      Retrieval v1 quick-run result: KGraph 2.5× fewer tokens / 5× fewer calls / 6× faster at equal accuracy.
+    </p>
+  </div>
+</body>
+</html>
