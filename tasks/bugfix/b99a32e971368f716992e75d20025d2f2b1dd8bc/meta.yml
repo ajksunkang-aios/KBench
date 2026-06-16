@@ -1,0 +1,6 @@
+id: b99a32e971368f716992e75d20025d2f2b1dd8bc
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 51d69817519f5f00041a1a039277f0367d76c82c
+parent_commit: cd77e75b5e4632d05d61fec5383052713c8ede2b
+oracle_files: ["net/netfilter/nf_tables_api.c"]
+oracle_methods: ["['nft_flush_table', 'net/netfilter/nf_tables_api.c']"]

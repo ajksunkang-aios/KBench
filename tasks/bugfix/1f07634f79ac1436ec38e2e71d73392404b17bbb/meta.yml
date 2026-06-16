@@ -1,0 +1,6 @@
+id: 1f07634f79ac1436ec38e2e71d73392404b17bbb
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 1dc3731d1af1f350cfd631b5559aac865ab2fbb4c
+parent_commit: fa08a7b61dff8a4df11ff1e84abfc214b487caf7
+oracle_files: ["fs/ext4/mmp.c"]
+oracle_methods: []

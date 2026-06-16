@@ -68,15 +68,21 @@ Outputs: structured JSON (for dashboards) + rendered leaderboard-style reports.
   workflow (`scripts/setup_retrieval.sh`: `git checkout` → build `kgraph.db` → run).
 - **Patch-backporting vertical — dataset imported** (21 CVE tasks); the
   behavioral harness (checkout target → apply → build → test) is in progress.
+- **Bugfix vertical — dataset imported** (20 syzkaller tasks, raw-file dirs,
+  fully populated: crash report + config + fix patch); harness reuses the
+  retrieval agent loop + a patch/oracle scorer (see
+  [`tasks/bugfix/README.md`](tasks/bugfix/README.md)).
 
-Roadmap: backport harness → bugfix → MR review.
+Roadmap: bugfix & backport harnesses → MR review.
 
 ## Dataset sources
 
-The **patch-backporting** tasks are derived from the dataset of:
-
-> **PORTGPT: Towards Automated Backporting Using Large Language Models.**
-> IEEE Symposium on Security and Privacy (S&P), 2026.
+- **patch-backporting** — derived from the dataset of:
+  > **PORTGPT: Towards Automated Backporting Using Large Language Models.**
+  > IEEE Symposium on Security and Privacy (S&P), 2026.
+- **bugfix** — derived from the syzkaller bug instances in
+  `Kernel_Benchmark_C_Repro` (syzkaller.appspot.com crash reports + upstream
+  fix commits).
 
 ## Design
 

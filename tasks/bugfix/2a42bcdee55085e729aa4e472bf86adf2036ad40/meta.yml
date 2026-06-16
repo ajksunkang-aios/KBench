@@ -1,0 +1,6 @@
+id: 2a42bcdee55085e729aa4e472bf86adf2036ad40
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 9e0babf2c06c73cda2c0cd37a1653d823adb40ec
+parent_commit: 9e0babf2c06c73cda2c0cd37a1653d823adb40ec
+oracle_files: ["fs/namespace.c"]
+oracle_methods: ["['SYSCALL_DEFINE3', 'fs/namespace.c']"]

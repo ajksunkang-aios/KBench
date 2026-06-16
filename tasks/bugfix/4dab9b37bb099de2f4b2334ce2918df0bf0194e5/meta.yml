@@ -1,0 +1,6 @@
+id: 4dab9b37bb099de2f4b2334ce2918df0bf0194e5
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: cd8c917a56f20f48748dd43d9ae3caff51d5b987
+parent_commit: e47498afeca9a0c6d07eeeacc46d563555a3f677
+oracle_files: ["fs/io_uring.c"]
+oracle_methods: []

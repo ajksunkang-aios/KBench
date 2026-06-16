@@ -1,0 +1,6 @@
+id: 1b73a9b2d76a4c2cde070ec4bea310222ae42450
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: d1fdb6d8f6a4109a4263176c84b899076a5f8008
+parent_commit: fb5772cbfe48575711bf789767d561582376f7f1
+oracle_files: ["block/blk-mq-sched.c"]
+oracle_methods: ["['blk_mq_sched_free_requests', 'block/blk-mq-sched.c']"]

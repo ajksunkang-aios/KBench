@@ -1,0 +1,6 @@
+id: 1abe2db081aaca3d3ca9eef2108f8131ec128bd4
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 200e340f2196d7fd427a5810d06e893b932f145a
+parent_commit: cd83cd55878409299f4614c5138d24dffacc39bd
+oracle_files: ["block/genhd.c"]
+oracle_methods: ["['__alloc_disk_node', 'block/genhd.c']"]

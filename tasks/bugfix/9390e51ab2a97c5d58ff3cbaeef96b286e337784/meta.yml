@@ -1,0 +1,6 @@
+id: 9390e51ab2a97c5d58ff3cbaeef96b286e337784
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: b284d4d5a6785f8cd07eda2646a95782373cd01e
+parent_commit: 1c2734b31d72316e3faaad88c0c9c46fa92a4b20
+oracle_files: ["net/tipc/name_table.c", "net/tipc/name_table.h", "net/tipc/subscr.c"]
+oracle_methods: []

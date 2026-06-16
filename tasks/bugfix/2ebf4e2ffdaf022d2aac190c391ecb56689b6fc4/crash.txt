@@ -1,0 +1,104 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in udf_find_entry+0x8a5/0x14f0 fs/udf/namei.c:253
+Write of size 165 at addr ffff888028a7925a by task syz-executor237/3608
+
+CPU: 1 PID: 3608 Comm: syz-executor237 Not tainted 6.0.0-syzkaller-09039-ga6afa4199d3d #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/22/2022
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:88 [inline]
+ dump_stack_lvl+0x1b1/0x28e lib/dump_stack.c:106
+ print_address_description+0x65/0x4b0 mm/kasan/report.c:317
+ print_report+0x108/0x1f0 mm/kasan/report.c:433
+ kasan_report+0xc3/0xf0 mm/kasan/report.c:495
+ kasan_check_range+0x2a7/0x2e0 mm/kasan/generic.c:189
+ memcpy+0x3c/0x60 mm/kasan/shadow.c:66
+ udf_find_entry+0x8a5/0x14f0 fs/udf/namei.c:253
+ udf_lookup+0xef/0x340 fs/udf/namei.c:309
+ __lookup_hash+0x115/0x240 fs/namei.c:1601
+ do_unlinkat+0x26b/0x940 fs/namei.c:4281
+ do_coredump+0x20fb/0x2970 fs/coredump.c:667
+ get_signal+0x1417/0x1770 kernel/signal.c:2843
+ arch_do_signal_or_restart+0x7b/0x730 arch/x86/kernel/signal.c:869
+ exit_to_user_mode_loop+0x74/0x150 kernel/entry/common.c:166
+ exit_to_user_mode_prepare+0xb2/0x140 kernel/entry/common.c:201
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:283 [inline]
+ syscall_exit_to_user_mode+0x26/0x60 kernel/entry/common.c:294
+ do_syscall_64+0x49/0xb0 arch/x86/entry/common.c:86
+ entry_SYSCALL_64_after_hwframe+0x63/0xcd
+RIP: 0033:0x7f30538fb8d6
+Code: b8 ff ff ff ff eb b9 e8 68 3b 04 00 0f 1f 84 00 00 00 00 00 49 89 ca 64 8b 04 25 18 00 00 00 85 c0 75 11 b8 12 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 5a c3 90 48 83 ec 28 48 89 54 24 10 48 89 74
+RSP: 002b:00007ffc4fc1dd88 EFLAGS: 00000246 ORIG_RAX: 0000000000000012
+RAX: ffffffffffffffe5 RBX: 0000000000000006 RCX: 00007f30538fb8d6
+RDX: 0000000000000027 RSI: 0000020006000001 RDI: 0000000000000006
+RBP: 00007ffc4fc1dda0 R08: 00007ffc4fc1dc20 R09: 0000555555693380
+R10: 6608000000000014 R11: 0000000000000246 R12: 0000000000000028
+R13: 0000000000000006 R14: 000000000000001c R15: 00000000200004a0
+ </TASK>
+
+Allocated by task 3608:
+ kasan_save_stack mm/kasan/common.c:38 [inline]
+ kasan_set_track mm/kasan/common.c:45 [inline]
+ set_alloc_info mm/kasan/common.c:437 [inline]
+ ____kasan_kmalloc+0xcd/0x100 mm/kasan/common.c:516
+ kasan_kmalloc include/linux/kasan.h:234 [inline]
+ kmem_cache_alloc_trace+0x97/0x310 mm/slub.c:3289
+ kmalloc include/linux/slab.h:600 [inline]
+ udf_find_entry+0x7b6/0x14f0 fs/udf/namei.c:243
+ udf_lookup+0xef/0x340 fs/udf/namei.c:309
+ __lookup_hash+0x115/0x240 fs/namei.c:1601
+ do_unlinkat+0x26b/0x940 fs/namei.c:4281
+ do_coredump+0x20fb/0x2970 fs/coredump.c:667
+ get_signal+0x1417/0x1770 kernel/signal.c:2843
+ arch_do_signal_or_restart+0x7b/0x730 arch/x86/kernel/signal.c:869
+ exit_to_user_mode_loop+0x74/0x150 kernel/entry/common.c:166
+ exit_to_user_mode_prepare+0xb2/0x140 kernel/entry/common.c:201
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:283 [inline]
+ syscall_exit_to_user_mode+0x26/0x60 kernel/entry/common.c:294
+ do_syscall_64+0x49/0xb0 arch/x86/entry/common.c:86
+ entry_SYSCALL_64_after_hwframe+0x63/0xcd
+
+The buggy address belongs to the object at ffff888028a79200
+ which belongs to the cache kmalloc-256 of size 256
+The buggy address is located 90 bytes inside of
+ 256-byte region [ffff888028a79200, ffff888028a79300)
+
+The buggy address belongs to the physical page:
+page:ffffea0000a29e00 refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x28a78
+head:ffffea0000a29e00 order:1 compound_mapcount:0 compound_pincount:0
+flags: 0xfff00000010200(slab|head|node=0|zone=1|lastcpupid=0x7ff)
+raw: 00fff00000010200 ffffea0000a29d80 dead000000000002 ffff888012041b40
+raw: 0000000000000000 0000000080100010 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 1, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 2, tgid 2 (kthreadd), ts 11303152503, free_ts 0
+ prep_new_page mm/page_alloc.c:2532 [inline]
+ get_page_from_freelist+0x742/0x7c0 mm/page_alloc.c:4283
+ __alloc_pages+0x259/0x560 mm/page_alloc.c:5549
+ alloc_slab_page+0x70/0xf0 mm/slub.c:1829
+ allocate_slab+0x5e/0x520 mm/slub.c:1974
+ new_slab mm/slub.c:2034 [inline]
+ ___slab_alloc+0x3ee/0xc40 mm/slub.c:3036
+ __slab_alloc mm/slub.c:3123 [inline]
+ slab_alloc_node mm/slub.c:3214 [inline]
+ slab_alloc mm/slub.c:3256 [inline]
+ kmem_cache_alloc_trace+0x25f/0x310 mm/slub.c:3287
+ kmalloc include/linux/slab.h:600 [inline]
+ kzalloc include/linux/slab.h:733 [inline]
+ set_kthread_struct+0xb1/0x1f0 kernel/kthread.c:117
+ copy_process+0x134d/0x3fa0 kernel/fork.c:2181
+ kernel_clone+0x21f/0x790 kernel/fork.c:2671
+ kernel_thread+0x150/0x1d0 kernel/fork.c:2724
+ create_kthread kernel/kthread.c:399 [inline]
+ kthreadd+0x57c/0x750 kernel/kthread.c:745
+ ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:306
+page_owner free stack trace missing
+
+Memory state around the buggy address:
+ ffff888028a79180: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff888028a79200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ffff888028a79280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06
+                                                                ^
+ ffff888028a79300: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff888028a79380: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+==================================================================

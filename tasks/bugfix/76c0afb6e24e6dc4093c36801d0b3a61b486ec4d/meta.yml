@@ -1,0 +1,6 @@
+id: 76c0afb6e24e6dc4093c36801d0b3a61b486ec4d
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 9a48d604672220545d209e9996c2a1edbb5637f6
+parent_commit: 88ac3bbcf73853880a9b2a65c67e6854390741cc
+oracle_files: ["fs/nilfs2/sufile.c"]
+oracle_methods: ["['nilfs_sufile_resize', 'fs/nilfs2/sufile.c']"]

@@ -1,0 +1,6 @@
+id: 70d491b839984c756992b68c93e666828a4a301c
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 25e73aadf297d78cf528841795cd37bad8320642
+parent_commit: e02d9c4c68dc0ca08ded9487720bba775c09669b
+oracle_files: ["net/sched/act_ctinfo.c"]
+oracle_methods: ["['tcf_ctinfo_search', 'net/sched/act_ctinfo.c']"]

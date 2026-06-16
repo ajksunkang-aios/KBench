@@ -1,0 +1,6 @@
+id: 07c9d71dc1a215b19c6a245c68f502bc57dbdb83
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 7ae77150d94d3b535c7b85e6b3647113095e79bf
+parent_commit: 0ba56b89fabc139849cf27e475287b0361f550d3
+oracle_files: ["net/qrtr/ns.c"]
+oracle_methods: []

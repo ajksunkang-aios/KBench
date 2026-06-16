@@ -1,0 +1,6 @@
+id: ecaca4a9ff4433a03763c176e958ecb8d2b27b4e
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 35efb51eee2241a970dcf70ed950f9db7e5351f7
+parent_commit: 815744d75152078cde5391fc1e3c2d4424323fb6
+oracle_files: ["mm/list_lru.c"]
+oracle_methods: ["['__memcg_init_list_lru_node', 'mm/list_lru.c']"]

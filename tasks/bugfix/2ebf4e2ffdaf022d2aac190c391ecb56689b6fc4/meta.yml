@@ -1,0 +1,6 @@
+id: 2ebf4e2ffdaf022d2aac190c391ecb56689b6fc4
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: a6afa4199d3d038fbfdff5511f7523b0e30cb774
+parent_commit: 59f2f4b8a757412fce372f6d0767bdb55da127a8
+oracle_files: ["fs/udf/namei.c"]
+oracle_methods: ["['udf_find_entry', 'fs/udf/namei.c']"]

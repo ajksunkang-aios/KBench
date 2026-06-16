@@ -1,0 +1,6 @@
+id: 89740d8d8416726adeba5953543037142b3b20be
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 5f21585384a4a69b8bfdd2cae7e3648ae805f57d
+parent_commit: e1ef035d272ef4dbfdda98e58699698305138856
+oracle_files: ["security/keys/keyctl_pkey.c"]
+oracle_methods: ["['keyctl_pkey_params_parse', 'security/keys/keyctl_pkey.c']"]

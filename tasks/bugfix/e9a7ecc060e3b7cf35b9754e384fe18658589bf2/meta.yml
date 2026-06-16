@@ -1,0 +1,6 @@
+id: e9a7ecc060e3b7cf35b9754e384fe18658589bf2
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 43f70c960180c11d64ee3e9e53075fe1acd43ff1
+parent_commit: a4f843bd004d775cbb360cd375969b8a479568a9
+oracle_files: ["fs/f2fs/inode.c"]
+oracle_methods: []

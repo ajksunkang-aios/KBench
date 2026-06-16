@@ -1,0 +1,6 @@
+id: a3d085c934448d325eba613246a150873080b331
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 5f63595ebd82f56a2dd36ca013dd7f5ff2e2416a
+parent_commit: 198430f7f785e072d5d70fe522b6c7abdf41068a
+oracle_files: ["fs/nilfs2/alloc.c", "fs/nilfs2/inode.c"]
+oracle_methods: []

@@ -1,0 +1,6 @@
+id: 80b047eb9aff0254f4adc620c6891c0ca3276309
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 4a21185cda0fbb860580eeeb4f1a70a9cda332a4
+parent_commit: 33c568ba49e2b0ff7c3daead5d9427be797a4c43
+oracle_files: ["include/net/genetlink.h", "net/netlink/genetlink.c"]
+oracle_methods: []

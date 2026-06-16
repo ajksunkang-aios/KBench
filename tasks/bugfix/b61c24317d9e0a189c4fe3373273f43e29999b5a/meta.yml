@@ -1,0 +1,6 @@
+id: b61c24317d9e0a189c4fe3373273f43e29999b5a
+repo: /Users/ajksunkang/workspace/kernelcompass/kernel-src/linux
+base_commit: 1bdd3dbfff7a308643c7f9ef74e4a8ef3923e686
+parent_commit: 4ee0776760af03f181e6b80baf5fb1cc1a980f50
+oracle_files: ["kernel/seccomp.c"]
+oracle_methods: []
