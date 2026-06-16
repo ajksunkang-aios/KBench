@@ -19,8 +19,10 @@ tasks/bugfix/<instance_id>/
 
 **Source:** `../kernelcompass/benchmark_experiments/dataset/kernel_bench_data.json`
 — 20 fully-crawled syzkaller bug instances (crash report + `.config` + fix patch +
-oracle already inline, no fetch needed). Ported by `scripts/import_bugfix.py`
-(all 20; `--n K` to subset, `--seed` for reproducibility).
+oracle already inline, no fetch needed), from the **KGym** dataset
+(*KGym: A Platform and Dataset to Benchmark Large Language Models on Linux Kernel
+Crash Resolution*, NeurIPS 2024; GitHub `Kernel_Benchmark_C_Repro`). Ported by
+`scripts/import_bugfix.py` (all 20; `--n K` to subset, `--seed` for reproducibility).
 
 ## Harness design
 

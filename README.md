@@ -80,9 +80,12 @@ Roadmap: bugfix & backport harnesses → MR review.
 - **patch-backporting** — derived from the dataset of:
   > **PORTGPT: Towards Automated Backporting Using Large Language Models.**
   > IEEE Symposium on Security and Privacy (S&P), 2026.
-- **bugfix** — derived from the syzkaller bug instances in
-  `Kernel_Benchmark_C_Repro` (syzkaller.appspot.com crash reports + upstream
-  fix commits).
+- **bugfix** — derived from the dataset of:
+  > **KGym: A Platform and Dataset to Benchmark Large Language Models on Linux
+  > Kernel Crash Resolution.** NeurIPS, 2024.
+  >
+  > GitHub: `Kernel_Benchmark_C_Repro` (syzkaller crash reports + upstream fix
+  > commits).
 
 ## Design
 
